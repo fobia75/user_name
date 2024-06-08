@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+    {{task}}
+{% endblock title %}
+{% block header %}
+{% endblock header %}
+{% block content %}
+<form method="POST" >
+    <textarea name="text" placeholder="введите текс" cols="30" rows="5"></textarea>
+    <input type="submit" value="Отправить">
+</form>
+{% endblock content %}

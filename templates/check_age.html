@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}
+    {{task}}
+{% endblock title %}
+{% block header %}
+{% endblock header %}
+{% block content %}
+<form class="form_auth_style" action="#" method="post">
+    <label>введите имя</label>
+    <input type="text" name="name" placeholder="введите ваше имя" required>
+    <label>введите ваш возраст</label>
+    <input type="number" name="number_age" placeholder="введите ваш возраст" required>
+    <button type="submit" name="form_auth_submit">отправить</button>
+</form>
+{% endblock content %}

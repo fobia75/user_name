@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}
+    {{task}}
+{% endblock title %}
+{% block header %}
+{% endblock header %}
+{% block content %}
+<form class="form_auth_style" action="#" method="post">
+    <input type="number" name="number_1">
+    <input type="number" name="number_2">
+    <select name="operation" id="operation">
+        <option value="add">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">*</option>
+        <option value="divide">/</option>
+    </select>
+    <button type="submit" name="resalt">расчитать</button>
+</form>
+{% endblock content %}

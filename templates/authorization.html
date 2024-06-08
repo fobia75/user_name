@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+    {{task}}
+{% endblock title %}
+{% block header %}
+{% endblock header %}
+{% block content %}
+<form class="form_auth_style" action="#" method="post">
+    <Label>Введите Ваш емейл</Label>
+    <input type="email" name="auth_emeil" placeholder="Введите Ваш емейл" required>
+    <label>Введите пароль</label>
+    <input type="password" name="auth_pass" placeholder="введите пароль" required>
+    <button class="form_auth_button" type="submit" name="form_auth_submit">войти</button>
+    
+</form>
+{% endblock content %}

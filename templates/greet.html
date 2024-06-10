@@ -6,8 +6,11 @@
     </head>
 <body>
 <div class="row">
-<h1 class="col-12 col-md-6 display-2">Привет, меня зовут
-{{ name }}</h1>
-<a href="/logout'">выйти</a>
+{%if session.username%}
+    <h1>Привет {{session.username}}</h1>
+    <a href="/logout">выйти</a>
+{% else %}
+    <a href="/login"></a> 
+{% endif %}       
 </body>
 </html>  

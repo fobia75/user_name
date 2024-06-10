@@ -14,30 +14,26 @@ def index():
     return render_template('index.html')
     
 
-@app.route('/login', methods= ['POST'])
+@app.route('/login', methods= ['POST','GET'])
 def login():
-    name = request.form['name']
-    email = request.form['auth_emeil']
-    response = make_response(redirect('/greet'))
-    response.set_cookie('user_name' , name)
-    response.set_cookie('user_email', email)
-    return response
+    if request.method == 'POST':
+        session['username'] = request.form.get('username','email')
+        return redirect(url_for('index'))
+    return render_template('login.html')
 
 
 @app.route('/greet')
 def greet():
-    user_name = request.cookies.get('user_name')
-    if user_name:
-        return render_template('greet.html', name = user_name)
-    return redirect('/')
+    username = request.cookies.get('username')
+    if username:
+        return render_template('greet.html', name = username)
+    return redirect(url_for('index'))
 
 
 @app.route('/logout/')
 def logout():
-    response = make_response(redirect('/'))
-    response.delete_cookie('user_name')
-    response.delete_cookie('user_email')
-    return response
+    session.pop('username', None)
+    return redirect(url_for('index'))
 
 
 @app.route('/next')

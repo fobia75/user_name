@@ -2,14 +2,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>введите имя и электронную почту</title>
+        <title>Добро пожаловать</title>
     </head>
 <body>
-    <form action="/login" method="post">
-        <Label>Введите Ваш емейл</Label>
-        <input type="email" name="auth_emeil" placeholder="Введите Ваш емейл" required>
-        <label>Введите имя</label>
-        <input type="text" name="name" placeholder="введите имя" required>
-        <input type="submit" value="отправить">
+<div class="row">
+{%if session.username%}
+    <h1>Привет {{session.username}}</h1>
+    <a href="/logout">выйти</a>
+{% else %}
+    <a href="/login">вход</a> 
+{% endif %}       
 </body>
-</html>    
+</html>   
